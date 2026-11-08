@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>טיול נובמבר 2026 · תל אביב → אוסטין → טמפה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f3eee4;
+      --ink: #1c2a36;
+      --muted: #5b6b78;
+      --card: #fffdf8;
+      --line: #e4d8c6;
+      --navy: #16324a;
+      --navy-2: #24567a;
+      --accent: #c45c26;
+      --ok: #0f7a56;
+      --ok-bg: #e5f6ef;
+      --warn: #9a4b12;
+      --warn-bg: #fff1de;
+      --info: #215886;
+      --info-bg: #e8f1f8;
+      --shadow: 0 10px 30px rgba(22, 50, 74, .08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Assistant, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 400px at 100% -10%, #f7d9c4 0%, transparent 55%),
+        radial-gradient(900px 340px at -10% 0%, #d7e6f0 0%, transparent 50%),
+        var(--bg);
+    }
+    header {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 20px 12px;
+    }
+    .kicker { color: var(--accent); font-weight: 700; letter-spacing: .04em; }
+    h1 { margin: 6px 0 8px; font-size: clamp(1.6rem, 4vw, 2.2rem); }
+    .sub { color: var(--muted); margin: 0 0 18px; }
+    .next {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .next small { color: #d5e3ee; }
+    .count { font-size: 1.35rem; font-weight: 800; }
+    .refs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .chip {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: .92rem;
+      cursor: pointer;
+    }
+    .chip:hover { border-color: var(--navy-2); }
+    nav {
+      max-width: 920px;
+      margin: 18px auto 0;
+      padding: 0 20px;
+      display: flex;
+      gap: 8px;
+    }
+    nav button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    nav button[aria-selected="true"] {
+      background: var(--navy);
+      color: #fff;
+    }
+    main { max-width: 920px; margin: 0 auto; padding: 12px 20px 64px; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .timeline { display: grid; gap: 14px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 { margin: 0 0 8px; }
+    .meta { color: var(--muted); font-size: .95rem; }
+    .route {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin: 12px 0;
+    }
+    .time { font-size: 1.45rem; font-weight: 800; }
+    .air { color: var(--muted); }
+    .arrow { color: var(--accent); font-weight: 800; }
+    details summary { cursor: pointer; font-weight: 700; color: var(--navy-2); }
+    .status {
+      display: inline-block;
+      background: var(--ok-bg);
+      color: var(--ok);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-weight: 700;
+      font-size: .85rem;
+    }
+    .note { border-radius: 16px; padding: 14px 16px; margin: 0 0 12px; }
+    .note.warning { background: var(--warn-bg); color: var(--warn); }
+    .note.info { background: var(--info-bg); color: var(--info); }
+    .note h3 { margin: 0 0 6px; font-size: 1rem; }
+    .note p { margin: 0; }
+    .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    a { color: var(--navy-2); }
+    footer { max-width: 920px; margin: 0 auto; padding: 0 20px 40px; color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="kicker">נובמבר 2026</div>
+    <h1>תל אביב → אוסטין → טמפה → תל אביב</h1>
+    <p class="sub">כל הזמנים מקומיים בשדה או במלון. לחצו על אסמכתא כדי להעתיק.</p>
+    <div class="next">
+      <div>
+        <small>הקטע הבא</small>
+        <div id="next-title" style="font-weight:800;font-size:1.15rem"></div>
+        <div id="next-when" class="count"></div>
+      </div>
+      <div id="next-count" class="count"></div>
+    </div>
+    <div class="refs" id="refs"></div>
+  </header>
+  <nav role="tablist">
+    <button type="button" role="tab" aria-selected="true" data-tab="overview">סקירה</button>
+    <button type="button" role="tab" aria-selected="false" data-tab="flights">טיסות</button>
+    <button type="button" role="tab" aria-selected="false" data-tab="hotels">מלונות</button>
+  </nav>
+  <main>
+    <section id="overview" class="panel active"></section>
+    <section id="flights" class="panel"></section>
+    <section id="hotels" class="panel"></section>
+  </main>
+  <footer id="foot"></footer>
+  <script>
+    const FALLBACK = null;
+    const $ = (id) => document.getElementById(id);
+
+    function pad(n) { return String(n).padStart(2, "0"); }
+    function countdown(iso) {
+      const diff = new Date(iso) - Date.now();
+      if (diff <= 0) return "כבר התחיל או חלף";
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      if (h > 48) return Math.floor(h / 24) + " ימים ו־" + (h % 24) + " שעות";
+      return pad(h) + ":" + pad(m) + ":" + pad(s);
+    }
+    function copyText(text) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
+    function mapsUrl(q) {
+      return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+    }
+    function nextSegment(data) {
+      const items = [
+        ...data.flights.map(f => ({ title: f.flightNumber + " · " + f.from.code + " → " + f.to.code, when: f.departLocal, label: f.departDateHe + " " + f.departTime })),
+        ...data.hotels.map(h => ({ title: "צ׳ק-אין · " + h.name, when: h.checkInLocal, label: h.checkInHe }))
+      ].filter(x => new Date(x.when) > Date.now())
+       .sort((a, b) => new Date(a.when) - new Date(b.when));
+      return items[0] || { title: "אין קטעים הבאים", when: null, label: "המסלול הסתיים" };
+    }
+    function flightCard(f) {
+      const st = f.status ? `<span class="status">${f.status.textHe} · שערי TLV ${f.status.departureGate || ""}</span>` : "";
+      const extra = f.status ? `
+        <p class="meta">דלפקים ${f.status.checkInCounters || "—"}. נחיתה משוערת ב-JFK ${f.status.estimatedArrival || f.arriveTime}, שער ${f.status.arrivalGate || "—"}. עודכן לפי ${ (f.status.sources || []).join(" ו") } ב-16:15 שעון ישראל, 8 בנוב׳.</p>
+        ${f.aircraft ? `<p class="meta">${f.aircraft}${f.codeshares && f.codeshares.length ? " · גם " + f.codeshares.join(", ") : ""}</p>` : ""}
+      ` : (f.operatedAs ? `<p class="meta">מופעלת על ידי ${f.operatedBy} כ-${f.operatedAs}</p>` : `<p class="meta">${f.operatedBy || ""}</p>`);
+      return `<article class="card">
+        <div class="row"><h3>${f.flightNumber}</h3>${st}</div>
+        <div class="route">
+          <div><div class="time">${f.departTime}</div><div class="air">${f.from.nameHe} (${f.from.code})${f.from.terminal ? " T" + f.from.terminal : ""}</div><div class="meta">${f.departDateHe}</div></div>
+          <div class="arrow">←</div>
+          <div style="text-align:left"><div class="time">${f.arriveTime}</div><div class="air">${f.to.nameHe} (${f.to.code})${f.to.terminal ? " T" + f.to.terminal : ""}</div><div class="meta">${f.arriveDateHe}</div></div>
+        </div>
+        <p class="meta">מושב ${f.seat} · ${f.cabin}</p>
+        <details><summary>פרטים</summary>${extra}</details>
+      </article>`;
+    }
+    function hotelCard(h) {
+      return `<article class="card">
+        <h3>${h.name}</h3>
+        <p class="meta">${h.nights} לילות · אישור <button class="chip" data-copy="${h.confirmation}">${h.confirmation}</button></p>
+        <p>${h.address}<br><a href="tel:${h.phone.replace(/\s/g,'')}">${h.phone}</a></p>
+        <p class="meta">צ׳ק-אין ${h.checkInHe}<br>צ׳ק-אאוט ${h.checkOutHe}</p>
+        <p><a href="${mapsUrl(h.mapsQuery)}" target="_blank" rel="noopener">ניווט בגוגל מפות</a></p>
+      </article>`;
+    }
+    function render(data) {
+      $("refs").innerHTML = [
+        ["Amsalem", data.booking.amsalemLocator],
+        ["Delta", data.booking.deltaConfirmation],
+        ["כרטיס", data.booking.eTicket]
+      ].map(([k,v]) => `<button class="chip" data-copy="${v}">${k} ${v}</button>`).join("");
+
+      $("overview").innerHTML =
+        data.notes.map(n => `<div class="note ${n.severity}"><h3>${n.titleHe}</h3><p>${n.textHe}</p></div>`).join("") +
+        `<div class="timeline">${data.flights.map(flightCard).join("")}</div>`;
+      $("flights").innerHTML = `<div class="timeline">${data.flights.map(flightCard).join("")}</div>`;
+      $("hotels").innerHTML = `<div class="timeline">${data.hotels.map(hotelCard).join("")}</div>`;
+      $("foot").textContent = "עודכן לאחרונה: " + data.lastUpdated + ". בוטים יכולים לקרוא את itinerary.json באותה כתובת.";
+
+      function tick() {
+        const n = nextSegment(data);
+        $("next-title").textContent = n.title;
+        $("next-when").textContent = n.label;
+        $("next-count").textContent = n.when ? countdown(n.when) : "";
+      }
+      tick();
+      clearInterval(window.__tick);
+      window.__tick = setInterval(tick, 1000);
+    }
+
+    document.querySelectorAll("nav button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("nav button").forEach(b => b.setAttribute("aria-selected", b === btn ? "true" : "false"));
+        document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === btn.dataset.tab));
+      });
+    });
+    document.addEventListener("click", (e) => {
+      const t = e.target.closest("[data-copy]");
+      if (!t) return;
+      copyText(t.dataset.copy);
+      const old = t.textContent;
+      t.textContent = "הועתק";
+      setTimeout(() => { t.textContent = old; }, 1200);
+    });
+
+    fetch("./itinerary.json", { cache: "no-store" })
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(render)
+      .catch(() => {
+        $("next-title").textContent = "לא הצלחתי לטעון את itinerary.json";
+      });
+  </script>
+</body>
+</html>
