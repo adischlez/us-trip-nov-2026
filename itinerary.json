@@ -1,7 +1,7 @@
 {
   "tripName": "TLV → Austin → Tampa → TLV",
-  "tripNameHe": "תל אביב → אוסטין → טמפה → תל אביב",
-  "lastUpdated": "2026-11-08T20:53:00+02:00",
+  "tripNameHe": "נסיעת עבודה: תל אביב → אוסטין → טמפה → תל אביב",
+  "lastUpdated": "2026-11-08T21:15:09+02:00",
   "timezoneNote": "All times are local at the airport or hotel.",
   "booking": {
     "channel": "Amsalem",
@@ -220,5 +220,7 @@
       "titleHe": "מעבר ב-12 בנוב׳ מאוסטין לטמפה",
       "textHe": "הטיסה מאוסטין יוצאת ב-08:10, כלומר יוצאים מהמלון הרבה לפני צ׳ק-אאוט 11:00. נחיתה בטמפה ב-11:31; צ׳ק-אין במלון רק מ-16:00."
     }
-  ]
+  ],
+  "purpose": "business",
+  "purposeHe": "נסיעת עבודה"
 }

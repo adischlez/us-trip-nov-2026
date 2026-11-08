@@ -1,6 +1,6 @@
-# November 2026 trip dashboard / דשבורד הטיול
+# November 2026 business-trip dashboard / דשבורד נסיעת העבודה
 
-Hebrew RTL dashboard for Adi's Tel Aviv → Austin → Tampa → Tel Aviv trip.
+Hebrew RTL dashboard for Adi's Tel Aviv → Austin → Tampa → Tel Aviv business trip.
 
 ## Live pages
 
