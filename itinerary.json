@@ -1,7 +1,7 @@
 {
   "tripName": "TLV → Austin → Tampa → TLV",
   "tripNameHe": "תל אביב → אוסטין → טמפה → תל אביב",
-  "lastUpdated": "2026-11-08T18:12:00+02:00",
+  "lastUpdated": "2026-11-08T20:53:00+02:00",
   "timezoneNote": "All times are local at the airport or hotel.",
   "booking": {
     "channel": "Amsalem",
@@ -49,7 +49,9 @@
         "checkInCounters": "B 46–55",
         "estimatedArrival": "04:37",
         "arrivalGate": "B24"
-      }
+      },
+      "flightRadarUrl": "https://www.flightradar24.com/DL235",
+      "flightRadarDataUrl": "https://www.flightradar24.com/data/flights/dl235"
     },
     {
       "id": "f2",
@@ -75,7 +77,9 @@
       "departTime": "07:00",
       "arriveTime": "10:15",
       "aircraft": null,
-      "status": null
+      "status": null,
+      "flightRadarUrl": "https://www.flightradar24.com/DL2506",
+      "flightRadarDataUrl": "https://www.flightradar24.com/data/flights/dl2506"
     },
     {
       "id": "f3",
@@ -101,7 +105,9 @@
       "departTime": "08:10",
       "arriveTime": "11:31",
       "aircraft": null,
-      "status": null
+      "status": null,
+      "flightRadarUrl": "https://www.flightradar24.com/DL487",
+      "flightRadarDataUrl": "https://www.flightradar24.com/data/flights/dl487"
     },
     {
       "id": "f4",
@@ -127,7 +133,9 @@
       "departTime": "11:57",
       "arriveTime": "14:38",
       "aircraft": null,
-      "status": null
+      "status": null,
+      "flightRadarUrl": "https://www.flightradar24.com/DL2647",
+      "flightRadarDataUrl": "https://www.flightradar24.com/data/flights/dl2647"
     },
     {
       "id": "f5",
@@ -154,7 +162,9 @@
       "departTime": "17:00",
       "arriveTime": "10:15",
       "aircraft": null,
-      "status": null
+      "status": null,
+      "flightRadarUrl": "https://www.flightradar24.com/LY2",
+      "flightRadarDataUrl": "https://www.flightradar24.com/data/flights/ly2"
     }
   ],
   "hotels": [

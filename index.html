@@ -127,6 +127,14 @@
     .note h3 { margin: 0 0 6px; font-size: 1rem; }
     .note p { margin: 0; }
     .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .radar {
+      margin-top: 12px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #0b1c28;
+    }
+    .radar iframe { display: block; width: 100%; height: 320px; border: 0; }
     a { color: var(--navy-2); }
     footer { max-width: 920px; margin: 0 auto; padding: 0 20px 40px; color: var(--muted); font-size: .9rem; }
   </style>
@@ -185,12 +193,27 @@
        .sort((a, b) => new Date(a.when) - new Date(b.when));
       return items[0] || { title: "אין קטעים הבאים", when: null, label: "המסלול הסתיים" };
     }
-    function flightCard(f) {
+    function radarCode(f) {
+      return String(f.operatedAs || f.flightNumber || "").replace(/\s+/g, "").toUpperCase();
+    }
+    function radarEmbedUrl(f) {
+      return f.flightRadarUrl || ("https://www.flightradar24.com/" + radarCode(f));
+    }
+    function radarPageUrl(f) {
+      return f.flightRadarDataUrl || ("https://www.flightradar24.com/data/flights/" + radarCode(f).toLowerCase());
+    }
+    function flightCard(f, embed) {
       const st = f.status ? `<span class="status">${f.status.textHe} · שערי TLV ${f.status.departureGate || ""}</span>` : "";
       const extra = f.status ? `
         <p class="meta">דלפקים ${f.status.checkInCounters || "—"}. נחיתה משוערת ב-JFK ${f.status.estimatedArrival || f.arriveTime}, שער ${f.status.arrivalGate || "—"}. עודכן לפי ${ (f.status.sources || []).join(" ו") } ב-16:15 שעון ישראל, 8 בנוב׳.</p>
         ${f.aircraft ? `<p class="meta">${f.aircraft}${f.codeshares && f.codeshares.length ? " · גם " + f.codeshares.join(", ") : ""}</p>` : ""}
       ` : (f.operatedAs ? `<p class="meta">מופעלת על ידי ${f.operatedBy} כ-${f.operatedAs}</p>` : `<p class="meta">${f.operatedBy || ""}</p>`);
+      const radar = radarEmbedUrl(f);
+      const radarOpen = radarPageUrl(f);
+      const radarBlock = embed
+        ? `<div class="radar"><iframe src="${radar}" title="מעקב ${radarCode(f)} ב-Flightradar24" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="fullscreen"></iframe></div>
+        <p class="meta"><a href="${radarOpen}" target="_blank" rel="noopener">אם המפה לא נטענת, פתחו ב-Flightradar24</a></p>`
+        : `<p class="meta"><a href="${radarOpen}" target="_blank" rel="noopener">מעקב ב-Flightradar24</a></p>`;
       return `<article class="card">
         <div class="row"><h3>${f.flightNumber}</h3>${st}</div>
         <div class="route">
@@ -199,6 +222,7 @@
           <div style="text-align:left"><div class="time">${f.arriveTime}</div><div class="air">${f.to.nameHe} (${f.to.code})${f.to.terminal ? " T" + f.to.terminal : ""}</div><div class="meta">${f.arriveDateHe}</div></div>
         </div>
         <details><summary>פרטים</summary>${extra}</details>
+        ${radarBlock}
       </article>`;
     }
     function hotelCard(h) {
@@ -219,8 +243,8 @@
 
       $("overview").innerHTML =
         data.notes.map(n => `<div class="note ${n.severity}"><h3>${n.titleHe}</h3><p>${n.textHe}</p></div>`).join("") +
-        `<div class="timeline">${data.flights.map(flightCard).join("")}</div>`;
-      $("flights").innerHTML = `<div class="timeline">${data.flights.map(flightCard).join("")}</div>`;
+        `<div class="timeline">${data.flights.map(f => flightCard(f, false)).join("")}</div>`;
+      $("flights").innerHTML = `<div class="timeline">${data.flights.map(f => flightCard(f, true)).join("")}</div>`;
       $("hotels").innerHTML = `<div class="timeline">${data.hotels.map(hotelCard).join("")}</div>`;
       $("foot").textContent = "עודכן לאחרונה: " + data.lastUpdated + ". בוטים יכולים לקרוא את itinerary.json באותה כתובת.";
 
