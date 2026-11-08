@@ -1,7 +1,7 @@
 {
   "tripName": "TLV → Austin → Tampa → TLV",
   "tripNameHe": "תל אביב → אוסטין → טמפה → תל אביב",
-  "lastUpdated": "2026-11-08T17:11:00+02:00",
+  "lastUpdated": "2026-11-08T18:12:00+02:00",
   "timezoneNote": "All times are local at the airport or hotel.",
   "booking": {
     "channel": "Amsalem",
@@ -14,23 +14,37 @@
       "id": "f1",
       "flightNumber": "DL 235",
       "operatedBy": "Delta Air Lines",
-      "codeshares": ["LY 4001", "VS 3955"],
-      "from": {"code": "TLV", "name": "Tel Aviv", "nameHe": "תל אביב", "terminal": "3"},
-      "to": {"code": "JFK", "name": "New York JFK", "nameHe": "ניו יורק JFK", "terminal": "4"},
+      "codeshares": [
+        "LY 4001",
+        "VS 3955"
+      ],
+      "from": {
+        "code": "TLV",
+        "name": "Tel Aviv",
+        "nameHe": "תל אביב",
+        "terminal": "3"
+      },
+      "to": {
+        "code": "JFK",
+        "name": "New York JFK",
+        "nameHe": "ניו יורק JFK",
+        "terminal": "4"
+      },
       "departLocal": "2026-11-08T23:30:00+02:00",
       "arriveLocal": "2026-11-09T04:58:00-05:00",
       "departDateHe": "ראשון, 8 בנוב׳ 2026",
       "arriveDateHe": "שני, 9 בנוב׳ 2026",
       "departTime": "23:30",
       "arriveTime": "04:58",
-      "seat": "21H",
-      "cabin": "Premium Eco",
       "aircraft": "Airbus A330-900neo",
       "status": {
         "text": "ON TIME",
         "textHe": "בזמן",
         "asOf": "2026-11-08T16:15:00+02:00",
-        "sources": ["flightstatus.co.il", "FlightStats"],
+        "sources": [
+          "flightstatus.co.il",
+          "FlightStats"
+        ],
         "departureGate": "C08",
         "checkInCounters": "B 46–55",
         "estimatedArrival": "04:37",
@@ -42,16 +56,24 @@
       "flightNumber": "DL 2506",
       "operatedBy": "Delta Air Lines",
       "codeshares": [],
-      "from": {"code": "JFK", "name": "New York JFK", "nameHe": "ניו יורק JFK", "terminal": "4"},
-      "to": {"code": "AUS", "name": "Austin", "nameHe": "אוסטין", "terminal": null},
+      "from": {
+        "code": "JFK",
+        "name": "New York JFK",
+        "nameHe": "ניו יורק JFK",
+        "terminal": "4"
+      },
+      "to": {
+        "code": "AUS",
+        "name": "Austin",
+        "nameHe": "אוסטין",
+        "terminal": null
+      },
       "departLocal": "2026-11-09T07:00:00-05:00",
       "arriveLocal": "2026-11-09T10:15:00-06:00",
       "departDateHe": "שני, 9 בנוב׳ 2026",
       "arriveDateHe": "שני, 9 בנוב׳ 2026",
       "departTime": "07:00",
       "arriveTime": "10:15",
-      "seat": "20B",
-      "cabin": "Comfort+",
       "aircraft": null,
       "status": null
     },
@@ -60,16 +82,24 @@
       "flightNumber": "DL 487",
       "operatedBy": "Delta Air Lines",
       "codeshares": [],
-      "from": {"code": "AUS", "name": "Austin", "nameHe": "אוסטין", "terminal": null},
-      "to": {"code": "TPA", "name": "Tampa", "nameHe": "טמפה", "terminal": null},
+      "from": {
+        "code": "AUS",
+        "name": "Austin",
+        "nameHe": "אוסטין",
+        "terminal": null
+      },
+      "to": {
+        "code": "TPA",
+        "name": "Tampa",
+        "nameHe": "טמפה",
+        "terminal": null
+      },
       "departLocal": "2026-11-12T08:10:00-06:00",
       "arriveLocal": "2026-11-12T11:31:00-05:00",
       "departDateHe": "חמישי, 12 בנוב׳ 2026",
       "arriveDateHe": "חמישי, 12 בנוב׳ 2026",
       "departTime": "08:10",
       "arriveTime": "11:31",
-      "seat": "10A",
-      "cabin": "Comfort+",
       "aircraft": null,
       "status": null
     },
@@ -78,16 +108,24 @@
       "flightNumber": "DL 2647",
       "operatedBy": "Delta Air Lines",
       "codeshares": [],
-      "from": {"code": "TPA", "name": "Tampa", "nameHe": "טמפה", "terminal": null},
-      "to": {"code": "JFK", "name": "New York JFK", "nameHe": "ניו יורק JFK", "terminal": "4"},
+      "from": {
+        "code": "TPA",
+        "name": "Tampa",
+        "nameHe": "טמפה",
+        "terminal": null
+      },
+      "to": {
+        "code": "JFK",
+        "name": "New York JFK",
+        "nameHe": "ניו יורק JFK",
+        "terminal": "4"
+      },
       "departLocal": "2026-11-18T11:57:00-05:00",
       "arriveLocal": "2026-11-18T14:38:00-05:00",
       "departDateHe": "רביעי, 18 בנוב׳ 2026",
       "arriveDateHe": "רביעי, 18 בנוב׳ 2026",
       "departTime": "11:57",
       "arriveTime": "14:38",
-      "seat": "11A",
-      "cabin": "Comfort+",
       "aircraft": null,
       "status": null
     },
@@ -97,16 +135,24 @@
       "operatedBy": "El Al",
       "operatedAs": "LY2",
       "codeshares": [],
-      "from": {"code": "JFK", "name": "New York JFK", "nameHe": "ניו יורק JFK", "terminal": "4"},
-      "to": {"code": "TLV", "name": "Tel Aviv", "nameHe": "תל אביב", "terminal": "3"},
+      "from": {
+        "code": "JFK",
+        "name": "New York JFK",
+        "nameHe": "ניו יורק JFK",
+        "terminal": "4"
+      },
+      "to": {
+        "code": "TLV",
+        "name": "Tel Aviv",
+        "nameHe": "תל אביב",
+        "terminal": "3"
+      },
       "departLocal": "2026-11-18T17:00:00-05:00",
       "arriveLocal": "2026-11-19T10:15:00+02:00",
       "departDateHe": "רביעי, 18 בנוב׳ 2026",
       "arriveDateHe": "חמישי, 19 בנוב׳ 2026",
       "departTime": "17:00",
       "arriveTime": "10:15",
-      "seat": "10F",
-      "cabin": "Premium Eco",
       "aircraft": null,
       "status": null
     }
