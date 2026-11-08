@@ -185,9 +185,19 @@
     function mapsUrl(q) {
       return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
     }
+    function flightEndTime(f) {
+      return new Date(f.arriveLocal || f.departLocal).getTime();
+    }
+    function flightIsCurrent(f) {
+      const end = flightEndTime(f);
+      return Number.isFinite(end) && (Date.now() - end) < 24 * 60 * 60 * 1000;
+    }
+    function currentFlights(data) {
+      return (data.flights || []).filter(flightIsCurrent);
+    }
     function nextSegment(data) {
       const items = [
-        ...data.flights.map(f => ({ title: f.flightNumber + " · " + f.from.code + " → " + f.to.code, when: f.departLocal, label: f.departDateHe + " " + f.departTime })),
+        ...currentFlights(data).map(f => ({ title: f.flightNumber + " · " + f.from.code + " → " + f.to.code, when: f.departLocal, label: f.departDateHe + " " + f.departTime })),
         ...data.hotels.map(h => ({ title: "צ׳ק-אין · " + h.name, when: h.checkInLocal, label: h.checkInHe }))
       ].filter(x => new Date(x.when) > Date.now())
        .sort((a, b) => new Date(a.when) - new Date(b.when));
@@ -241,10 +251,17 @@
         ["כרטיס", data.booking.eTicket]
       ].map(([k,v]) => `<button class="chip" data-copy="${v}">${k} ${v}</button>`).join("");
 
+      const flights = currentFlights(data);
+      const flightList = flights.length
+        ? flights.map(f => flightCard(f, false)).join("")
+        : `<p class="meta">אין טיסות להצגה. טיסות יורדות מהדשבורד 24 שעות אחרי הנחיתה.</p>`;
+      const flightEmbeds = flights.length
+        ? flights.map(f => flightCard(f, true)).join("")
+        : `<p class="meta">אין טיסות להצגה. טיסות יורדות מהדשבורד 24 שעות אחרי הנחיתה.</p>`;
       $("overview").innerHTML =
         data.notes.map(n => `<div class="note ${n.severity}"><h3>${n.titleHe}</h3><p>${n.textHe}</p></div>`).join("") +
-        `<div class="timeline">${data.flights.map(f => flightCard(f, false)).join("")}</div>`;
-      $("flights").innerHTML = `<div class="timeline">${data.flights.map(f => flightCard(f, true)).join("")}</div>`;
+        `<div class="timeline">${flightList}</div>`;
+      $("flights").innerHTML = `<div class="timeline">${flightEmbeds}</div>`;
       $("hotels").innerHTML = `<div class="timeline">${data.hotels.map(hotelCard).join("")}</div>`;
       $("foot").textContent = "עודכן לאחרונה: " + data.lastUpdated + ". בוטים יכולים לקרוא את itinerary.json באותה כתובת.";
 
