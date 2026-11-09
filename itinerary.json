@@ -1,7 +1,7 @@
 {
   "tripName": "TLV → Austin → Tampa → TLV",
   "tripNameHe": "נסיעת עבודה: תל אביב → אוסטין → טמפה → תל אביב",
-  "lastUpdated": "2026-11-09T05:34:59-05:00",
+  "lastUpdated": "2026-11-09T06:11:41-05:00",
   "timezoneNote": "All times are local at the airport or hotel.",
   "booking": {
     "channel": "Amsalem",
@@ -225,6 +225,12 @@
       "severity": "warning",
       "titleHe": "להחזיר את הרכב לפני הטיסה לטמפה",
       "textHe": "הטיסה מאוסטין ב-12 בנוב׳ יוצאת ב-08:10, אבל בשובר מופיעות שעות 09:00 ו-11:00. צריך להחזיר את הרכב בשדה בסביבות 06:00–06:30. כדאי לוודא בתחנה בעת האיסוף שהחזרה מוקדמת בסדר."
+    },
+    {
+      "id": "n6",
+      "severity": "warning",
+      "titleHe": "החזרת הרכב בטמפה צמודה לטיסה",
+      "textHe": "ההחזרה בשובר רשומה ל-18 בנוב׳ ב-11:00, אבל הטיסה לניו יורק יוצאת ב-11:57. כדאי להחזיר את הרכב עד 09:30 בערך."
     }
   ],
   "purpose": "business",
@@ -248,6 +254,26 @@
       "insuranceHe": "כל הביטוחים הנדרשים כלולים לפי גליה דולב; אין צורך להוסיף בתחנה.",
       "fuelHe": "אין צורך להחזיר מיכל מלא.",
       "tollsHe": "אפשר מנוי כבישי אגרה ב-5$ ליום; כדאי לברר בתחנה."
+    },
+    {
+      "id": "c2",
+      "company": "Hertz",
+      "bookedVia": "Kesher Rent a Car",
+      "voucher": "40247962",
+      "reservation": "L763E4C0120",
+      "vehicle": "Nissan Rogue או דומה (קבוצה Q4), אוטומט עם מזגן",
+      "pickupDate": "2026-11-12",
+      "returnDate": "2026-11-18",
+      "pickupHe": "חמישי, 12 בנוב׳ 2026, 11:00",
+      "returnHe": "רביעי, 18 בנוב׳ 2026, 11:00",
+      "location": "Hertz, Tampa International Airport",
+      "address": "5405 Airport Service Rd, Tampa, FL",
+      "phone": "+1 813-874-3232",
+      "mapsQuery": "Hertz 5405 Airport Service Rd Tampa FL",
+      "timesNoteHe": "6 ימי השכרה. בשובר רשומה בטעות טיסה DL2506; הטיסה בפועל היא DL 487 שנוחתת ב-11:31.",
+      "insuranceHe": "כלול: מיסים מקומיים, קילומטראז׳ בלתי מוגבל, דמי רישוי, ביטוח צד ג׳ (LIS) ופטור מנזקים (LDW).",
+      "fuelHe": "לא כלול: אופציית דלק מראש, נהג נוסף ודמי החזרה.",
+      "tollsHe": "לא כלול: אגרות ו-PlatePass; משלמים בתחנה במטבע מקומי."
     }
   ]
 }
