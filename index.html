@@ -158,11 +158,13 @@
     <button type="button" role="tab" aria-selected="true" data-tab="overview">סקירה</button>
     <button type="button" role="tab" aria-selected="false" data-tab="flights">טיסות</button>
     <button type="button" role="tab" aria-selected="false" data-tab="hotels">מלונות</button>
+    <button type="button" role="tab" aria-selected="false" data-tab="cars">רכב</button>
   </nav>
   <main>
     <section id="overview" class="panel active"></section>
     <section id="flights" class="panel"></section>
     <section id="hotels" class="panel"></section>
+    <section id="cars" class="panel"></section>
   </main>
   <footer id="foot"></footer>
   <script>
@@ -244,6 +246,16 @@
         <p><a href="${mapsUrl(h.mapsQuery)}" target="_blank" rel="noopener">ניווט בגוגל מפות</a></p>
       </article>`;
     }
+    function carCard(c) {
+      return `<article class="card">
+        <h3>${c.company} · ${c.vehicle}</h3>
+        <p class="meta">דרך ${c.bookedVia} · שובר <button class="chip" data-copy="${c.voucher}">${c.voucher}</button></p>
+        <p>${c.location}<br>${c.address}<br><a href="tel:${c.phone.replace(/\s|-/g,'')}">${c.phone}</a></p>
+        <p class="meta">איסוף ${c.pickupHe} · החזרה ${c.returnHe}<br>${c.timesNoteHe}</p>
+        <p class="meta">${c.insuranceHe}<br>${c.fuelHe}<br>${c.tollsHe}</p>
+        <p><a href="${mapsUrl(c.mapsQuery)}" target="_blank" rel="noopener">ניווט בגוגל מפות</a></p>
+      </article>`;
+    }
     function render(data) {
       $("refs").innerHTML = [
         ["Amsalem", data.booking.amsalemLocator],
@@ -263,6 +275,7 @@
         `<div class="timeline">${flightList}</div>`;
       $("flights").innerHTML = `<div class="timeline">${flightEmbeds}</div>`;
       $("hotels").innerHTML = `<div class="timeline">${data.hotels.map(hotelCard).join("")}</div>`;
+      $("cars").innerHTML = `<div class="timeline">${(data.cars || []).map(carCard).join("")}</div>`;
       $("foot").textContent = "עודכן לאחרונה: " + data.lastUpdated + ". בוטים יכולים לקרוא את itinerary.json באותה כתובת.";
 
       function tick() {

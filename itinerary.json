@@ -1,7 +1,7 @@
 {
   "tripName": "TLV → Austin → Tampa → TLV",
   "tripNameHe": "נסיעת עבודה: תל אביב → אוסטין → טמפה → תל אביב",
-  "lastUpdated": "2026-11-08T21:15:09+02:00",
+  "lastUpdated": "2026-11-09T05:34:59-05:00",
   "timezoneNote": "All times are local at the airport or hotel.",
   "booking": {
     "channel": "Amsalem",
@@ -219,8 +219,35 @@
       "severity": "info",
       "titleHe": "מעבר ב-12 בנוב׳ מאוסטין לטמפה",
       "textHe": "הטיסה מאוסטין יוצאת ב-08:10, כלומר יוצאים מהמלון הרבה לפני צ׳ק-אאוט 11:00. נחיתה בטמפה ב-11:31; צ׳ק-אין במלון רק מ-16:00."
+    },
+    {
+      "id": "n5",
+      "severity": "warning",
+      "titleHe": "להחזיר את הרכב לפני הטיסה לטמפה",
+      "textHe": "הטיסה מאוסטין ב-12 בנוב׳ יוצאת ב-08:10, אבל בשובר מופיעות שעות 09:00 ו-11:00. צריך להחזיר את הרכב בשדה בסביבות 06:00–06:30. כדאי לוודא בתחנה בעת האיסוף שהחזרה מוקדמת בסדר."
     }
   ],
   "purpose": "business",
-  "purposeHe": "נסיעת עבודה"
+  "purposeHe": "נסיעת עבודה",
+  "cars": [
+    {
+      "id": "c1",
+      "company": "Hertz",
+      "bookedVia": "Kesher Rent a Car",
+      "voucher": "40247962",
+      "vehicle": "Nissan Rogue או דומה, אוטומט עם מזגן",
+      "pickupDate": "2026-11-09",
+      "returnDate": "2026-11-12",
+      "pickupHe": "שני, 9 בנוב׳ 2026",
+      "returnHe": "חמישי, 12 בנוב׳ 2026",
+      "location": "Hertz, Austin-Bergstrom International Airport",
+      "address": "3819 Presidential Blvd, Austin, TX",
+      "phone": "+1 737-825-0506",
+      "mapsQuery": "Hertz 3819 Presidential Blvd Austin TX",
+      "timesNoteHe": "בשובר מופיעות השעות 11:00 ו-09:00, ולא ברור איזו מהן לאיסוף ואיזו להחזרה.",
+      "insuranceHe": "כל הביטוחים הנדרשים כלולים לפי גליה דולב; אין צורך להוסיף בתחנה.",
+      "fuelHe": "אין צורך להחזיר מיכל מלא.",
+      "tollsHe": "אפשר מנוי כבישי אגרה ב-5$ ליום; כדאי לברר בתחנה."
+    }
+  ]
 }
