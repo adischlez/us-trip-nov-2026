@@ -1,7 +1,7 @@
 {
   "tripName": "TLV → Austin → Tampa → TLV",
   "tripNameHe": "נסיעת עבודה: תל אביב → אוסטין → טמפה → תל אביב",
-  "lastUpdated": "2026-11-09T06:11:41-05:00",
+  "lastUpdated": "2026-11-09T09:15:17-05:00",
   "timezoneNote": "All times are local at the airport or hotel.",
   "booking": {
     "channel": "Amsalem",
@@ -38,16 +38,18 @@
       "arriveTime": "04:58",
       "aircraft": "Airbus A330-900neo",
       "status": {
-        "text": "ON TIME",
-        "textHe": "בזמן",
-        "asOf": "2026-11-08T16:15:00+02:00",
+        "text": "ARRIVED ON TIME",
+        "textHe": "נחתה בזמן",
+        "asOf": "2026-11-09T09:15:17-05:00",
         "sources": [
-          "flightstatus.co.il",
-          "FlightStats"
+          "FlightStats",
+          "FlightRadar24"
         ],
         "departureGate": "C08",
         "checkInCounters": "B 46–55",
-        "estimatedArrival": "04:37",
+        "estimatedArrival": "04:57",
+        "actualDeparture": "23:24",
+        "actualArrival": "04:57",
         "arrivalGate": "B24"
       },
       "flightRadarUrl": "https://www.flightradar24.com/DL235",
@@ -57,7 +59,13 @@
       "id": "f2",
       "flightNumber": "DL 2506",
       "operatedBy": "Delta Air Lines",
-      "codeshares": [],
+      "codeshares": [
+        "AM 4791",
+        "KL 5803",
+        "LA 7107",
+        "LY 4159",
+        "VS 3473"
+      ],
       "from": {
         "code": "JFK",
         "name": "New York JFK",
@@ -76,8 +84,20 @@
       "arriveDateHe": "שני, 9 בנוב׳ 2026",
       "departTime": "07:00",
       "arriveTime": "10:15",
-      "aircraft": null,
-      "status": null,
+      "aircraft": "Airbus A321neo",
+      "status": {
+        "text": "DEPARTED ON TIME",
+        "textHe": "המריאה בזמן",
+        "asOf": "2026-11-09T09:15:17-05:00",
+        "sources": [
+          "FlightStats"
+        ],
+        "departureGate": "B29",
+        "estimatedArrival": "10:09",
+        "actualDeparture": "06:56",
+        "arrivalGate": "12",
+        "baggageClaim": "2"
+      },
       "flightRadarUrl": "https://www.flightradar24.com/DL2506",
       "flightRadarDataUrl": "https://www.flightradar24.com/data/flights/dl2506"
     },

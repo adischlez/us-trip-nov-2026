@@ -214,12 +214,35 @@
     function radarPageUrl(f) {
       return f.flightRadarDataUrl || ("https://www.flightradar24.com/data/flights/" + radarCode(f).toLowerCase());
     }
+    function statusAsOfLabel(asOf) {
+      if (!asOf) return "";
+      const d = new Date(asOf);
+      if (Number.isNaN(d.getTime())) return asOf;
+      return d.toLocaleString("he-IL", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+    }
     function flightCard(f, embed) {
-      const st = f.status ? `<span class="status">${f.status.textHe} · שערי TLV ${f.status.departureGate || ""}</span>` : "";
-      const extra = f.status ? `
-        <p class="meta">דלפקים ${f.status.checkInCounters || "—"}. נחיתה משוערת ב-JFK ${f.status.estimatedArrival || f.arriveTime}, שער ${f.status.arrivalGate || "—"}. עודכן לפי ${ (f.status.sources || []).join(" ו") } ב-16:15 שעון ישראל, 8 בנוב׳.</p>
-        ${f.aircraft ? `<p class="meta">${f.aircraft}${f.codeshares && f.codeshares.length ? " · גם " + f.codeshares.join(", ") : ""}</p>` : ""}
-      ` : (f.operatedAs ? `<p class="meta">מופעלת על ידי ${f.operatedBy} כ-${f.operatedAs}</p>` : `<p class="meta">${f.operatedBy || ""}</p>`);
+      const s = f.status;
+      const badgeParts = s ? [s.textHe] : [];
+      if (s && s.departureGate) badgeParts.push("שער יציאה " + s.departureGate);
+      if (s && s.arrivalGate) badgeParts.push("שער נחיתה " + s.arrivalGate);
+      const st = s ? `<span class="status">${badgeParts.join(" · ")}</span>` : "";
+      let extra;
+      if (s) {
+        const bits = [];
+        if (s.checkInCounters) bits.push("דלפקים " + s.checkInCounters);
+        if (s.actualDeparture) bits.push("המראה בפועל " + s.actualDeparture);
+        if (s.actualArrival) bits.push("נחיתה בפועל " + s.actualArrival);
+        else if (s.estimatedArrival || f.arriveTime) bits.push("נחיתה משוערת " + (s.estimatedArrival || f.arriveTime));
+        if (s.arrivalGate) bits.push("שער " + s.arrivalGate);
+        if (s.baggageClaim) bits.push("מסוע " + s.baggageClaim);
+        const src = (s.sources || []).join(" ו");
+        const when = statusAsOfLabel(s.asOf);
+        const updated = [src, when].filter(Boolean).join(" · ");
+        extra = `<p class="meta">${bits.join(". ")}${updated ? ". עודכן לפי " + updated : ""}.</p>`
+          + (f.aircraft ? `<p class="meta">${f.aircraft}${f.codeshares && f.codeshares.length ? " · גם " + f.codeshares.join(", ") : ""}</p>` : "");
+      } else {
+        extra = f.operatedAs ? `<p class="meta">מופעלת על ידי ${f.operatedBy} כ-${f.operatedAs}</p>` : `<p class="meta">${f.operatedBy || ""}</p>`;
+      }
       const radar = radarEmbedUrl(f);
       const radarOpen = radarPageUrl(f);
       const radarBlock = embed
